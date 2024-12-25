@@ -29,7 +29,7 @@ def create_user (request):
     token = Token.objects.create(user=user_auth)
     user_email = Users.objects.filter(email=data["email"]).first()
     if user_email:
-        message = f"Un utilisateur avec email {data["email"]} existe déjà."
+        message = "Un utilisateur avec cet email existe déjà."
     return Response (UserSerializers(user).data, status=status.HTTP_201_CREATED)
 
     # serializer_data = UserSerializers(data=user)
